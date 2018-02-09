@@ -6,10 +6,12 @@ function pad0(value) {
   return result;
 }
 
+// STOPWATCH CLASS DEFINITION
 class Stopwatch {
-  constructor(display) {
+  constructor(display, results) {
     this.running = false;
     this.display = display;
+    this.results = results;
     this.reset();
     this.print(this.times);
   }
@@ -53,12 +55,23 @@ class Stopwatch {
     };
     this.print();
   }
+  addResult() {
+    let listItem = document.createElement("li");
+    listItem.appendChild(document.createTextNode(this.format(this.times)));
+    this.results.appendChild(listItem);
+  }
+  clearResult() {
+    this.results.innerHTML = "";
+  }
 }
 
+// STOPWATCH OBJECT CREATION
 const stopwatch = new Stopwatch(
-  document.querySelector(".stopwatch")
+  document.querySelector(".stopwatch"),
+  document.querySelector(".results")
 );
 
+// BUTTONS VARIABLES
 var startButton = document.getElementById("start");
 startButton.addEventListener("click", () => stopwatch.start());
 
@@ -67,3 +80,9 @@ stopButton.addEventListener("click", () => stopwatch.stop());
 
 var resetButton = document.getElementById("reset");
 resetButton.addEventListener("click", () => stopwatch.reset());
+
+var addResultButton = document.getElementById("addResult");
+addResultButton.addEventListener("click", () => stopwatch.addResult());
+
+var clearResultButton = document.getElementById("clearResult");
+clearResultButton.addEventListener("click", () => stopwatch.clearResult());
