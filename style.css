@@ -2,15 +2,18 @@ body {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   background-color: CadetBlue;
   color: white;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-items: center;
 }
 body,
 ul {
   margin: 0;
   padding: 0;
+}
+
+#app > div {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .stopwatch {
