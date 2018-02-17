@@ -36,8 +36,6 @@ class App extends React.Component {
       running: false,
       results: []
     };
-    this.display = this.props.display;
-    this.results = this.props.results;
   }
   calculate() {
     this.setState({
